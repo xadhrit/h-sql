@@ -41,6 +41,7 @@ struct user{
 // global variables
 void open_file();
 void write_res();
+void search();
 int tl ,ts, x;
 
 
@@ -92,6 +93,60 @@ void write_res(){
 	fclose(fp);
 	return;
 }
+
+
+
+// write a search function not similiar to binary search tree search yet do it
+
+void search(){
+
+	char ch;
+	char nam[100];
+	int n,i, m=1;
+	FILE *fp;
+	fp=fopen("store.txt", "r");
+	do {
+	
+		printf("\nEnter search choice : ");
+		ch = getchar();
+
+	}while(ch!='1' && ch!='2');
+	switch(ch){
+	
+		case '1':
+			fseek(fp, 0, SEEK_END);
+			tl = ftell(fp);
+			ts = sizeof(info);
+			x = tl/ts;
+			do {
+			
+			printf("\nChoose   Name")	;
+			scanf("%d", &n);
+
+			if (n<=0 || n>x){
+			
+				printf("\nEnter Choice\n");
+			}
+			else {
+			
+				fseek(fp, (n-1)*x, SEEK_SET);
+				fread(&info, x, 1, fp);
+				output();
+			}
+			
+			}while(ch=='y')
+			fclose(fp);
+			break;
+
+	// stop this crapping now.
+
+
+	}
+
+
+	
+}
+
 
 
 
