@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <stdint.h>
 #include <fcntl.h>
+#include "colors.h"
 
 typedef struct {
 
@@ -961,9 +962,10 @@ int main(int argc, char* argv[]){
 
 	if (argc < 2){
 	
-		printf("Must apply a database filename.\n");
+		printf("Must apply a database filename .\n");
 		exit(EXIT_FAILURE);
 	}
+       
 	char* filename = argv[1];
 	Table* table = db_open(filename);
 
