@@ -1,3 +1,10 @@
+/*
+                                B+- tree implemented in Ubuntu 18.04 LTS. Working :
+Put filename.
+Not my code , it's cstack's implementation.
+I just changed some const declaration for #define. And modified some command's syntax.
+
+*/
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
