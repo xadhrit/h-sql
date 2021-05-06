@@ -43,13 +43,13 @@ void close_input_stream(InputBuffer* user_input){
 
 void print_screen(){
 
-	printf("psql> ");
+	printf("hsql> ");
 }
 
 int main(int argc, char* argv[]){
 	system("clear");
 
-	printf("           WELCOME TO THE HACKY VERSION OF POSTGRES SQL     \n");
+	printf("           WELCOME TO THE MAIN SCREEN OF H-SQL     \n");
         InputBuffer* user_input = new_input_buffer();
         while(true){
 	
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]){
 		if(strcmp(user_input->buffer, "exit") == 0){
 		
 			close_input_stream(user_input);
-			printf("Press Any Key To Exit");
+			printf("Press Any Key To Exit...");
 			char ch =  getchar();
 			if (ch){
 			    system("clear");
@@ -70,6 +70,12 @@ int main(int argc, char* argv[]){
 			
 				exit(EXIT_FAILURE);
 			}
+		}
+		else if(strcmp(user_input->buffer, "clear")==0){
+		        
+			system("clear");
+			// solution for some time.
+			printf("        WELCOME TO THE MAIN SCREEN OF H-SQL     \n");
 		}
 		else {
 		
