@@ -92,7 +92,7 @@ typedef struct {
 } Cursor;
 
 void print_row (Row* row){
-	printf("(%d , %s, %s)\n", row->id, row->username, row->email);
+	printf("(%d , %s, %s,%s)\n", row->id, row->username, row->email,KCYN);
 }
 
 typedef enum {
@@ -961,6 +961,17 @@ ExecuteResult execute_statement(Statement* statement, Table* table){
 
 }
 
+void print_cmd(){
+    printf(" %s                  WECLOME TO H-SQL DATABASE       \n", KMAG);
+    printf(" \n");
+    printf(" \n");
+	printf("%s ls for help and getting all commands\n", KBLU);
+	printf("\n");
+	printf("INSERT ex> %sINSERT 12 user12 user12@mail.com \n", KGRN);
+	printf("\n");
+	printf("SELECT ex> %sSELECT * (for printing all data)\n", KGRN);
+
+}
 
 int main(int argc, char* argv[]){
 	system("clear");
@@ -976,7 +987,7 @@ int main(int argc, char* argv[]){
 	Table* table = db_open(filename);
      
 	InputBuffer* user_input = new_input_buffer();
-	printf(" %s WECLOME TO H-SQL DATABASE \n", KMAG);
+    print_cmd(); 	
 	while(true){
 	    
 		print_screen();
