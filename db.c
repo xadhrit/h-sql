@@ -518,7 +518,7 @@ Pager* pager_open(const char* filename){
 			);
 	if (fd == -1){
 	
-		printf("Unable to open file\n");
+		printf("%sUnable to open file\n", KRED);
 		exit(EXIT_FAILURE);
 	}
 	off_t file_length = lseek(fd, 0, SEEK_END);
@@ -593,8 +593,7 @@ void close_input_stream(InputBuffer* user_input){
 }
 
 void print_screen(){
-
-	printf("hsql> ");
+    printf("%s hsql> ", KYEL);
 }
 
 void pager_flush(Pager* pager, uint32_t page_num){
@@ -727,11 +726,16 @@ PrepareResult prepare_statement(InputBuffer* user_input, Statement* statement){
 	
 		return prepare_insert(user_input, statement);
 	}
-	if (strcmp(user_input->buffer, "SELECT")==0){
+	if (strcmp(user_input->buffer, "SELECT *")==0){
 	
 		statement->type =STATEMENT_SELECT;
 		return PREPARE_SUCCESS;
 	}
+	if (strcmp(user_input->buffer, "EXIT")==0){
+		exit(EXIT_SUCCESS);
+
+	}
+	if (strcmp)
 	return PREPARE_ILLEGAL_STATEMENT;
 
 }
@@ -959,19 +963,22 @@ ExecuteResult execute_statement(Statement* statement, Table* table){
 
 
 int main(int argc, char* argv[]){
+	system("clear");
+	
 
 	if (argc < 2){
 	
-		printf("Must apply a database filename .\n");
+		printf("%sMust apply a database filename .\n", KRED);
 		exit(EXIT_FAILURE);
 	}
        
 	char* filename = argv[1];
 	Table* table = db_open(filename);
-
+     
 	InputBuffer* user_input = new_input_buffer();
+	printf(" %s WECLOME TO H-SQL DATABASE \n", KMAG);
 	while(true){
-	
+	    
 		print_screen();
 		read_input(user_input);
 
@@ -982,7 +989,7 @@ int main(int argc, char* argv[]){
 				case (META_COMMAND_SUCCESS):
 					continue;
 				case (META_ILLEGAL_COMMAND):
-					printf("Unrecognized command '%s'\n", user_input->buffer);
+					printf("%sUnrecognized command '%s'\n",KCYN , user_input->buffer);
 					continue;
 			}
 		}
@@ -992,7 +999,7 @@ int main(int argc, char* argv[]){
 			case (PREPARE_SUCCESS):
 				break;
 			case (PREPARE_NEGATIVE_ID):
-				printf("ID MUST BE +\n");
+				printf("ID MUST BE. \n");
 			        continue;
 			case (PREPARE_STRING_TOO_LONG):
 				printf("String is too long.\n");
