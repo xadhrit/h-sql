@@ -37,7 +37,7 @@ gcc db.c -o db
 Insertion--
 ```
 
-hsql> INSERT into {key}, {username},{email}
+hsql> INSERT  {key}, {username},{email}
 
 ```
 
