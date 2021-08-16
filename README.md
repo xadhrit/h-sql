@@ -1,3 +1,5 @@
+*Can we do it C++?*
+
 ## H-SQL DATABASE
 
 <p align="center" >
@@ -18,7 +20,12 @@ git clone https://github.com/xadhrit/h-sql.git
 ##### Compile db.c file
 
 ```
-gcc db.c -o db
+make
+
+or 
+
+chmod a+x run
+./run
 
 ```
 
