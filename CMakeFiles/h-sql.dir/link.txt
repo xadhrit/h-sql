@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/h-sql.dir/db.c.o CMakeFiles/h-sql.dir/hashdb.c.o  -o h-sql 

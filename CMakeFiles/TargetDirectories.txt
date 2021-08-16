@@ -1,0 +1,3 @@
+/home/godhead/Desktop/C/db/CMakeFiles/rebuild_cache.dir
+/home/godhead/Desktop/C/db/CMakeFiles/edit_cache.dir
+/home/godhead/Desktop/C/db/CMakeFiles/h-sql.dir

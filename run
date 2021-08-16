@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#make cmake or run this file
+touch db.txt
+gcc db.c -o db && ./db db.txt
+
